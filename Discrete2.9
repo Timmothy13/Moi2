@@ -1,0 +1,44 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class App {
+    public static boolean isPrime (int num){
+        
+        if (num<2){
+            return false;
+        }
+        for (int i= 2; i<= Math.sqrt(num); i ++){
+
+            if (num % i == 0){
+                return false;
+            }
+        }
+        return true;
+    }
+    public static List <Integer> primes (int n){
+
+        List <Integer> primeList = new ArrayList<>();
+
+        for (int i = 2;  i < n; i++){
+
+            if(isPrime(i)){
+                primeList.add(i);
+
+            }
+        }
+        return primeList;
+        
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner (System.in);
+        System.out.println("Enter a number Higher than 1: ");
+
+        int n = sc.nextInt();
+
+        List<Integer>primeNumbers = primes (n);
+
+        System.out.println(" List of prime numbers between 2 and " + n + " : " + primeNumbers );
+        
+    }
+}
